@@ -1,0 +1,35 @@
+doctype html
+html
+  head
+    title='CS460PA1'
+    link(rel='stylesheet', href='/stylesheets/index.css')
+  body
+
+
+block content
+  h1= 'CS460 PA1'
+
+  h2='Enter an arbitrary SQL Query'
+  a(class='button' href='/query') Click Here
+
+  h2= 'Tables'
+  h3= 'Businesses'
+  a(class='button' href='/businesses/insert') Insert
+  a(class='button' href='/businesses/update') Update
+  a(class='button' href='/businesses/delete') Delete
+  h3= 'Users'
+  a(class='button' href='/users/insert') Insert
+  a(class='button' href='/users/update') Update
+  a(class='button' href='/users/delete') Delete
+  h3= 'Reviews'
+  a(class='button' href='/reviews/insert') Insert
+  a(class='button' href='/reviews/update') Update
+  a(class='button' href='/reviews/delete') Delete
+  h3= 'Check-In'
+  a(class='button' href='/checkin/insert') Insert
+  a(class='button' href='/checkin/delete') Delete
+
+  h2='Choose from pre-selected SQL Queries'
+  a(class='button' href='/preselected') Click Here
+
+

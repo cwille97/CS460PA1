@@ -1,0 +1,43 @@
+doctype html
+html
+    head
+        title='CS460PA1'
+        link(rel='stylesheet', href='/stylesheets/style.css')
+    body
+        block content
+            h1='Check-in Insert'
+            .main.container
+                .row
+                    .col-md-6.col-md-offset-3
+                        h1.display-4.m-b-2 Please enter all values
+
+                        a(class='button' href='/') Return to Home
+                            br
+
+                        // register form
+                        form(method='POST' action='/chinsert')
+                            div.form-group
+                                label(for='id') Enter the ID of the business this review is for:
+                                input#id.form-control(type='text', placeholder='business id' name='id')
+                            div.form-group
+                                label(for='sunday') Sunday:
+                                input#sunday.form-control(type='text', placeholder='0' name='sunday')
+                            div.form-group
+                                label(for='monday') Monday:
+                                input#monday.form-control(type='text', placeholder='0' name='monday')
+                            div.form-group
+                                label(for='tuesday') Tuesday:
+                                input#tuesday.form-control(type='text', placeholder='0' name='tuesday')
+                            div.form-group
+                                label(for='wednesday') Wednesday:
+                                input#wednesday.form-control(type='text', placeholder='0' name='wednesday')
+                            div.form-group
+                                label(for='thursday') Thursday:
+                                input#thursday.form-control(type='text', placeholder='0' name='thursday')
+                            div.form-group
+                                label(for='friday') Friday:
+                                input#friday.form-control(type='text', placeholder='0' name='friday')
+                            div.form-group
+                                label(for='friday') Saturday:
+                                input#friday.form-control(type='text', placeholder='0' name='saturday')
+                            button.btn.btn-primary(type='submit') Submit

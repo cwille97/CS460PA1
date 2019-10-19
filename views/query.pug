@@ -1,0 +1,23 @@
+doctype html
+html
+    head
+        title='CS460PA1'
+        link(rel='stylesheet', href='/stylesheets/style.css')
+    body
+        block content
+            h1='Query'
+            .main.container
+                .row
+                    .col-md-6.col-md-offset-3
+                        h1.display-4.m-b-2 Enter a SQL Query here
+
+                        a(class='button' href='/') Return to Home
+                            br
+
+                        // register form
+                        form(method='POST' action='/query')
+                            div.form-group
+                                label(for='query') Query:
+                                input#query.form-control(type='text', placeholder='enter query here' name='query')
+                            button.btn.btn-primary(type='submit') Submit
+

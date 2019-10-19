@@ -1,0 +1,32 @@
+doctype html
+html
+    head
+        title='CS460PA1'
+        link(rel='stylesheet', href='/stylesheets/style.css')
+    body
+        block content
+            h1='Insert a Business'
+            .main.container
+                .row
+                    .col-md-6.col-md-offset-3
+                        h1.display-4.m-b-2 Please enter all values
+
+                        a(class='button' href='/') Return to Home
+                            br
+
+                        // register form
+                        form(method='POST' action='/businsert')
+                            div.form-group
+                                label(for='name') Business Name:
+                                input#name.form-control(type='text', placeholder='business name' name='name')
+                            div.form-group
+                                label(for='id') Business ID:
+                                input#id.form-control(type='text', placeholder='business id' name='id')
+                            div.form-group
+                                label(for='stars') Number of stars:
+                                input#stars.form-control(type='text', placeholder='0' name='stars')
+                            div.form-group
+                                label(for='status') Type active or inactive depending on status:
+                                    input#status.form-control(type='text', placeholder='active' name='status')
+
+                            button.btn.btn-primary(type='submit') Submit

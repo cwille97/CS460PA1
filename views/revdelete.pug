@@ -1,0 +1,23 @@
+doctype html
+html
+    head
+        title='CS460PA1'
+        link(rel='stylesheet', href='/stylesheets/style.css')
+    body
+        block content
+            h1='Review Delete'
+            .main.container
+                .row
+                    .col-md-6.col-md-offset-3
+                        h1.display-4.m-b-2 Please enter the ID of the review you'd like to delete
+
+                        a(class='button' href='/') Return to Home
+                            br
+
+                        // register form
+                        form(method='POST' action='/revdelete')
+                            div.form-group
+                                label(for='id') Review ID:
+                                input#id.form-control(type='text', placeholder='review id' name='id')
+                            button.btn.btn-primary(type='submit') Submit
+
