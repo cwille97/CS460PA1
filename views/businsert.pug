@@ -26,7 +26,8 @@ html
                                 label(for='stars') Number of stars:
                                 input#stars.form-control(type='text', placeholder='0' name='stars')
                             div.form-group
-                                label(for='status') Type active or inactive depending on status:
-                                    input#status.form-control(type='text', placeholder='active' name='status')
+                                label(for='status') Type true (active) or false (inactive) depending on status:
+                                    input#status.form-control(type='text', placeholder='true' name='status')
 
                             button.btn.btn-primary(type='submit') Submit
+                            h1= response

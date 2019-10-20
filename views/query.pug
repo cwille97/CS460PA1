@@ -18,6 +18,8 @@ html
                         form(method='POST' action='/query')
                             div.form-group
                                 label(for='query') Query:
-                                input#query.form-control(type='text', placeholder='enter query here' name='query')
+                                input#query.form-control(type='text', placeholder='enter query here' name='cusquery')
                             button.btn.btn-primary(type='submit') Submit
 
+                        h1.display-4.m-b-2 Results
+                        p= results
