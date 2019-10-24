@@ -312,136 +312,134 @@ router.route('/chinsert').post(function (req, res, next) {
   const saturday = req.body.saturday;
 
   // uncomment once checkins are set up in the database
-  /*
   let sql = "INSERT INTO CS460.checkins VALUES ('" + id + "', '" + sunday + "', '" + monday + "', '" +  tuesday + "', '" + wednesday + "', '" + thursday + "', '" + friday + "', '" + saturday + "');";
   con.query(sql, function (err, result, fields) {
     if (err) throw err;
     console.log("The following query has gone through: " + sql);
   });
-  */
   res.render('chinsert', {response: "executed the following query: " + sql});
 });
 
 router.route('/chdelete').post(function (req, res, next) {
   const id = req.body.id;
-  const sql = "DELETE FROM CS460.checkins WHERE checkin_id='" + id + "'";
-  /* uncomment once checkins are set up in the database
+  const sql = "DELETE FROM CS460.checkins WHERE business_id='" + id + "'";
   con.query(sql, function (err, result, fields) {
     if (err) throw err;
     console.log("Deleted the checkin with id " + id);
   });
-  */
   res.render('chdelete', {response: "executed the following query: " + sql});
 });
 
-router.route('/query1').post(function (req, res, next) {
-  /* uncomment once the proper query is determined
-  sql = "";
+router.get('/query1', function(req, res, next) {
+  sql = "SELECT * FROM CS460.Users WHERE review_count >= 1;";
+  let ret = "";
   con.query(sql, function (err, result, fields) {
     if (err) throw err;
     console.log("The following query has gone through: " + sql);
+    ret = JSON.stringify(result);
+    res.render('preselectedresponse', {val: ret});
   });
-  res.render('/preselectedresponse', {results: JSON.stringify(result)});
-  */
 });
 
-router.route('/query2').post(function (req, res, next) {
-  /* uncomment once the proper query is determined
-  sql = "";
+router.get('/query2', function(req, res, next) {
+  sql = "SELECT name FROM CS460.Users WHERE review_count <= 2;";
+  let ret = "";
   con.query(sql, function (err, result, fields) {
     if (err) throw err;
     console.log("The following query has gone through: " + sql);
+    ret = JSON.stringify(result);
+    res.render('preselectedresponse', {val: ret});
   });
-  res.render('/preselectedresponse', {results: JSON.stringify(result)});
-  */
 });
 
-router.route('/query3').post(function (req, res, next) {
-  /* uncomment once the proper query is determined
-  sql = "";
+router.get('/query3', function(req, res, next) {
+  sql = "SELECT * FROM CS460.Businesses WHERE active = 'false';";
+  let ret = "";
   con.query(sql, function (err, result, fields) {
     if (err) throw err;
     console.log("The following query has gone through: " + sql);
+    ret = JSON.stringify(result);
+    res.render('preselectedresponse', {val: ret});
   });
-  res.render('/preselectedresponse', {results: JSON.stringify(result)});
-  */
 });
 
-router.route('/query4').post(function (req, res, next) {
-  /* uncomment once the proper query is determined
-  sql = "";
+router.get('/query4', function(req, res, next) {
+  sql = "SELECT B.business_name FROM CS460.Businesses B WHERE stars > 4 AND B.business_name LIKE '%Pizza%';";
+  let ret = "";
   con.query(sql, function (err, result, fields) {
     if (err) throw err;
     console.log("The following query has gone through: " + sql);
+    ret = JSON.stringify(result);
+    res.render('preselectedresponse', {val: ret});
   });
-  res.render('/preselectedresponse', {results: JSON.stringify(result)});
-  */
 });
 
-router.route('/query5').post(function (req, res, next) {
-  /* uncomment once the proper query is determined
-  sql = "";
+router.get('/query5', function(req, res, next) {
+  sql = "SELECT COUNT(*) FROM CS460.Businesses B, CS460.Checkins C WHERE B.business_id = C.business_id AND C.friday > 0;";
+  let ret = "";
   con.query(sql, function (err, result, fields) {
     if (err) throw err;
     console.log("The following query has gone through: " + sql);
+    ret = JSON.stringify(result);
+    res.render('preselectedresponse', {val: ret});
   });
-  res.render('/preselectedresponse', {results: JSON.stringify(result)});
-  */
 });
 
-router.route('/query6').post(function (req, res, next) {
-  /* uncomment once the proper query is determined
-  sql = "";
+router.get('/query6', function(req, res, next) {
+  sql = "SELECT R.review_text FROM CS460.reviews R, CS460.Businesses B WHERE B.business_id = R.business_id AND B.business_name = 'Arcadia Tavern';";
+  let ret = "";
   con.query(sql, function (err, result, fields) {
     if (err) throw err;
     console.log("The following query has gone through: " + sql);
+    ret = JSON.stringify(result);
+    res.render('preselectedresponse', {val: ret});
   });
-  res.render('/preselectedresponse', {results: JSON.stringify(result)});
-  */
 });
 
-router.route('/query7').post(function (req, res, next) {
-  /* uncomment once the proper query is determined
-  sql = "";
+router.get('/query7', function(req, res, next) {
+  sql = "SELECT B.business_name FROM CS460.Businesses B, CS460.Reviews R WHERE (R.stars = 1 OR R.stars = 2) AND R.business_id = B.business_id;";
+  let ret = "";
   con.query(sql, function (err, result, fields) {
     if (err) throw err;
     console.log("The following query has gone through: " + sql);
+    ret = JSON.stringify(result);
+    res.render('preselectedresponse', {val: ret});
   });
-  res.render('/preselectedresponse', {results: JSON.stringify(result)});
-  */
 });
 
-router.route('/query8').post(function (req, res, next) {
-  /* uncomment once the proper query is determined
-  sql = "";
+router.get('/query8', function(req, res, next) {
+  sql = "SELECT SUM(B.review_count), AVG(B.stars) FROM CS460.Businesses B WHERE B.business_name LIKE 'KFC';";
+  let ret = "";
   con.query(sql, function (err, result, fields) {
     if (err) throw err;
     console.log("The following query has gone through: " + sql);
+    ret = JSON.stringify(result);
+    res.render('preselectedresponse', {val: ret});
   });
-  res.render('/preselectedresponse', {results: JSON.stringify(result)});
-  */
 });
 
-router.route('/query9').post(function (req, res, next) {
-  /* uncomment once the proper query is determined
-  sql = "";
+router.get('/query9', function(req, res, next) {
+  sql = "SELECT B.business_id FROM CS460.Businesses B ORDER BY review_count DESC LIMIT 10;";
+  let ret = "";
   con.query(sql, function (err, result, fields) {
     if (err) throw err;
     console.log("The following query has gone through: " + sql);
+    ret = JSON.stringify(result);
+    res.render('preselectedresponse', {val: ret});
   });
-  res.render('/preselectedresponse', {results: JSON.stringify(result)});
-  */
 });
 
-router.route('/query10').post(function (req, res, next) {
-  /* uncomment once the proper query is determined
-  sql = "";
+
+
+router.get('/query10', function(req, res, next) {
+  sql = "SELECT U.name FROM CS460.Users U ORDER BY review_count DESC LIMIT 1;";
+  let ret = "";
   con.query(sql, function (err, result, fields) {
     if (err) throw err;
     console.log("The following query has gone through: " + sql);
+    ret = JSON.stringify(result);
+    res.render('preselectedresponse', {val: ret});
   });
-  res.render('/preselectedresponse', {results: JSON.stringify(result)});
-  */
 });
 
 
